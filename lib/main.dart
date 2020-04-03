@@ -4,7 +4,6 @@ import 'package:email_validator/email_validator.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
         accentColor: Colors.white,
       ),
-      home: MyHomePage(title: 'Login Pagina'),
+      home: MyHomePage(title: 'Pagina Inicial'),
     );
   }
 }
@@ -41,14 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
     if (form.validate()) {
       form.save();
 
-      // Email & password matched our validation rules
-      // and are saved to _email and _password fields.
       _loginCommand();
     }
   }
 
   void _loginCommand() {
-    // This is just a demo, so no actual login here.
     final snackbar = SnackBar(
       content: Text('Email: $_email, password: $_password'),
     );
@@ -59,88 +55,124 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFFF7255),
-        key: scaffoldKey,
-        body: Theme(
-          data: Theme.of(context).copyWith(accentColor: Colors.white),
-          child: Padding(
-            padding: const EdgeInsets.all(40.0),
-            child: Form(
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Olá novamente!",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40.0,
-                            color: Colors.white),
-                      )
-                    ],
+      backgroundColor: Color(0xFFFF7255),
+      key: scaffoldKey,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(40.0),
+        child: Column(
+          children: <Widget>[
+            Row(              
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset('images/logo.png', width: 120.0),
+              ],
+            ),
+            Divider(
+              color: Color(0xFFFF7255),
+              height: 160.0,
+            ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Olá, novamente!",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28.0,
+                          color: Colors.white),
+                    )
+                  ],
+                ),
+                Divider(
+                  color: Color(0xFFFF7255),
+                  height: 20.0,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.email,
+                      color: Colors.white,
+                    ),
+                    hintText: 'Insira seu email',
+                    labelText: 'Endereço de Email',
                   ),
-                  Divider(
-                    color: Color(0xFFFF7255),
-                    height: 20.0,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
+                  style: TextStyle(color: Colors.white),
+                  validator: (val) => !EmailValidator.validate(val, true)
+                      ? 'Email inválido.'
+                      : null,
+                  onSaved: (val) => _email = val,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
                       icon: Icon(
-                        Icons.email,
+                        Icons.lock,
                         color: Colors.white,
                       ),
-                      hintText: 'Insira seu email',
-                      labelText: 'Endereço de Email',
-                    ),
-                    style: TextStyle(color: Colors.white),
-                    validator: (val) => !EmailValidator.validate(val, true)
-                        ? 'Email inválido.'
-                        : null,
-                    onSaved: (val) => _email = val,
+                      hintText: 'Insira sua senha',
+                      focusColor: Colors.white,
+                      labelText: 'Senha'),
+                  validator: (val) => val.length < 4 ? 'Senha inválida' : null,
+                  onSaved: (val) => _password = val,
+                  obscureText: true,
+                ),
+                Divider(
+                  color: Color(0xFFFF7255),
+                  height: 30.0,
+                ),
+                ConstrainedBox(
+                    constraints:
+                        const BoxConstraints(minWidth: double.infinity),
+                    child: RaisedButton(
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
+                        onPressed: () {},
+                        color: Colors.white,
+                        child: Text(
+                          'Entrar',
+                          style: TextStyle(
+                            fontSize: 17.0,
+                            color: Color(0xFFFF7255),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ))),
+                Divider(
+                  color: Color(0xFFFF7255),
+                  height: 20.0,
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Esqueceu a senha?',
+                    style: TextStyle(fontSize: 17),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        icon: Icon(
-                          Icons.lock,
-                          color: Colors.white,
-                        ),
-                        hintText: 'Insira sua senha',
-                        focusColor: Colors.white,
-                        labelText: 'Senha'),
-                    validator: (val) =>
-                        val.length < 4 ? 'Senha inválida' : null,
-                    onSaved: (val) => _password = val,
-                    obscureText: true,
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Crie uma conta agora',
+                    style: TextStyle(fontSize: 17),
                   ),
-                  Divider(
-                    color: Color(0xFFFF7255),
-                    height: 30.0,
-                  ),
-                  ConstrainedBox(
-                      constraints:
-                          const BoxConstraints(minWidth: double.infinity),
-                      child: RaisedButton(
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
-                          onPressed: _submitCommand,
-                          color: Colors.white,
-                          child: Text(
-                            'Entrar',
-                            style: TextStyle(
-                              fontSize: 17.0,
-                              color: Color(0xFFFF7255),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ))),
-                ],
-              ),
+                )
+              ],
             ),
-          ),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }
+
+
+/* cmd pro onPress(){}
+
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TelaPrincipal()),
+                          );
+                        
+*/
