@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Olá, novamente!",
+                      "Olá novamente!",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 28.0,
