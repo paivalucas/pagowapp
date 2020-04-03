@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "134260093093",
+    "firebase_url": "https://pagowapp-7ef22.firebaseio.com",
+    "project_id": "pagowapp-7ef22",
+    "storage_bucket": "pagowapp-7ef22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134260093093:android:a17c519d42d44f2318dd4c",
+        "android_client_info": {
+          "package_name": "app.pagow.pagow_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134260093093-09geka9hjjj9l5vocojlhjvp5ce8cq1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYzeqReegqvVH-jY6riyZOyzzIQ3OxMH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134260093093-09geka9hjjj9l5vocojlhjvp5ce8cq1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134260093093:android:ffddd36c06d82f9618dd4c",
+        "android_client_info": {
+          "package_name": "com.example.herewegoagain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134260093093-09geka9hjjj9l5vocojlhjvp5ce8cq1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYzeqReegqvVH-jY6riyZOyzzIQ3OxMH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134260093093-09geka9hjjj9l5vocojlhjvp5ce8cq1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134260093093:android:a035b1099bce726118dd4c",
+        "android_client_info": {
+          "package_name": "com.example.pagowandroidmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134260093093-09geka9hjjj9l5vocojlhjvp5ce8cq1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYzeqReegqvVH-jY6riyZOyzzIQ3OxMH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134260093093-09geka9hjjj9l5vocojlhjvp5ce8cq1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
