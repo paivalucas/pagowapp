@@ -59,10 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
 
   ///
-  ///
   ///  Tela Login
-  ///
-  ///
+  /// 
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFF7255),
