@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() => runApp(MyApp());
 
@@ -203,13 +205,15 @@ navigator onPress(){~~~}
      builder: (context) => TelaPrincipal()),
 );                        
 */
-///
+
 ///
 ///
 ///  Tela Esqueci a senha
 ///
 ///
 ///
+
+
 class EsqueciSenha extends StatefulWidget {
   @override
   _EsqueciSenhaState createState() => _EsqueciSenhaState();
