@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
+//import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'register.dart';
 import 'forgot.dart';
 
@@ -47,34 +45,52 @@ class _MyHomePageState extends State<MyHomePage> {
   ///
   ///  Tela Login
   /// 
-  Widget build(BuildContext context) {
-    return Scaffold(
+  /// 
+  /*
+
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.white,
+        accentColor: Colors.white,
+      ),
+
+*/
+  /// 
+  Widget build(BuildContext context) {   
+    return new MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.white,
+        accentColor: Colors.white,
+      ),
+      home: Scaffold(
       backgroundColor: Color(0xFFFF7255),
       key: scaffoldKey,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(40, 60, 40, 0),
+      body: Center(child: SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
         child: Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('images/logo.png', width: 120.0),
+                Image.asset('images/logo.png', width: 110.0),
               ],
             ),
             Divider(
               color: Color(0xFFFF7255),
-              height: 160.0,
+              height: 80.0,
             ),
             Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       "Olá novamente!",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 28.0,
+                          fontSize: 24.0,
                           color: Colors.white),
                     )
                   ],
@@ -146,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Divider(
                   color: Color(0xFFFF7255),
-                  height: 20.0,
+                  height: 40.0,
                 ),
                 FlatButton(
                   onPressed: () {
@@ -176,7 +192,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-    );
+      ),)));
   }
 }

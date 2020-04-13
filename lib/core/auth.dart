@@ -35,7 +35,4 @@ class Auth {
       print(e.toString());
     }
   }
-
-  // TODO: Autenticação por celular
-  // TODO: Ler documentação
 }
