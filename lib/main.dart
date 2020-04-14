@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pagowandroidmobile/Core/Services/auth.dart';
 
 void main() => runApp(MyApp());
 
@@ -223,6 +222,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  TextEditingController emailController = TextEditingController(); 
   String _emailEsqueci;
 
   void _submitEsqueci() {
@@ -318,6 +318,8 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                 hintText: 'Insira seu email',
                 labelText: 'Endereço de Email',
               ),
+              controller: emailController,
+              keyboardType: TextInputType.text,
               style: TextStyle(color: Colors.white),
               validator: (val) => !EmailValidator.validate(val, true)
                   ? 'Email inválido.'
@@ -331,7 +333,8 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                         borderRadius: new BorderRadius.circular(30.0)),
                     padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
                     onPressed: () {
-                      _submitEsqueci();
+                      Auth auth = Auth();
+                      auth.passwordResetEmail(emailController.text);
                     },
                     color: Colors.white,
                     child: Text(
