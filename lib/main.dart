@@ -222,8 +222,12 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+<<<<<<< HEAD
   TextEditingController emailController = TextEditingController(); 
   String _emailEsqueci;
+=======
+  TextEditingController _emailEsqueci  = TextEditingController();
+>>>>>>> cc66ac09e03ba52832afb992a5e22c4191fb7b10
 
   void _submitEsqueci() {
     final form = formKey.currentState;
