@@ -7,16 +7,14 @@ class Despesa {
 
   Despesa({this.valor, this.codigo});
 
+  Despesa.fromMap(DocumentSnapshot snapshot)
+      : valor = snapshot['valor'],
+        codigo = snapshot['codigo'];
 
-  Despesa.fromMap(DocumentSnapshot snapshot):
-    valor = snapshot['valor'],
-    codigo = snapshot['codigo'];
-
-
-  toJson(){
+  toJson() {
     return {
-      'valor':valor,
-      'codigo':codigo,
+      'valor': valor,
+      'codigo': codigo,
     };
   }
 }

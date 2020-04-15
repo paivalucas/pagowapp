@@ -15,7 +15,6 @@ class Colaborador {
   String nDaConta;
   String nDaAgencia;
   List<Despesa> despesas;
-  
 
   Colaborador(
       {this.email,
@@ -28,7 +27,6 @@ class Colaborador {
       this.nDaAgencia,
       this.nDaConta,
       this.despesas});
-
 
   // Transforma o objeto JSON obtido pela requisição do Firebase em um objeto Colaborador
   Colaborador.fromMap(DocumentSnapshot snapshot)
@@ -59,4 +57,3 @@ class Colaborador {
     };
   }
 }
-
