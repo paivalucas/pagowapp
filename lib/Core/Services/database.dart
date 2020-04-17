@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pagowandroidmobile/Core/Models/colaborator.dart';
 import 'package:pagowandroidmobile/Core/Models/despesa.dart';
 import './auth.dart';
 
@@ -62,11 +63,42 @@ class Services {
     }
   }
 
-  Future inputReembolso(Despesa despesa) async {
-    Auth authentication = Auth();
-    FirebaseUser user = await authentication.auth.currentUser();
-    var email = user.email;
-    await ref.document(email).updateData(
-        {'despesas': despesa.toJson()}).catchError((e) => print(e.toString()));
+  // TODO: resolber problema de resolução
+  Future<Colaborador> searchColab(String id) async {
+    if (id.contains('@')) {
+      return await ref
+          .where('email', isEqualTo: id)
+          .getDocuments()
+          .then((value) => Colaborador.fromMap(value.documents.first))
+          .catchError((onError) => print(onError));
+    } else {
+      return await ref
+          .where('nome', isEqualTo: id)
+          .getDocuments()
+          .catchError((onError) => print(onError))
+          .then((value) => Colaborador.fromMap(value.documents.first));
+    }
+  }
+
+  Future updateDocument(Colaborador colaborador) async {
+    String email = colaborador.email;
+    return await ref
+        .document(email)
+        .updateData(colaborador.toJson())
+        .catchError((e) => print(e.toString()));
+  }
+
+  // TODO: resolber problema de resolução
+  Future<List<Colaborador>> searchCollection() async {
+    var result = await ref.getDocuments();
+    return result.documents
+        .map((documentSnapshot) => Colaborador.fromMap(documentSnapshot));
+  }
+
+  // Imcompleto
+  // TODO: resolver o problema da busca na base de dados
+  Future<void> inputReembolso(Despesa despesa, String id) async {
+    // Adiciona a despesa no documento despesa
+    ref.add(despesa.toJson());
   }
 }

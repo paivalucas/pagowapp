@@ -36,7 +36,7 @@ class _InputRState extends State<InputR> {
                       color: Colors.white,
                     ),
                     hintText: 'Insira sua senha',
-                    focusColor: Colors.white,
+                    focusColor: Colors.white, 
                     labelText: 'Senha'),
               ),
               Container(
@@ -48,9 +48,8 @@ class _InputRState extends State<InputR> {
                       shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0)),
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
-                      onPressed: () {
-                        // _formKey.currentState.validate()
-                        if (true) {
+                      onPressed: () async {
+                        if (_formKey.currentState.validate()) {
                           Services database =
                               Services('Empresas/Pagow/Despesas');
                           Despesa despesa = Despesa(
@@ -58,7 +57,6 @@ class _InputRState extends State<InputR> {
                               descricao: 'descricao',
                               fotoNF: 'dale',
                               data: 'esa');
-                          database.inputReembolso(despesa);
                         }
                       },
                       color: Colors.white,
