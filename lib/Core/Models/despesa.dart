@@ -1,20 +1,28 @@
-// TODO: Definir campos e estruturar
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/widgets.dart';
 
 class Despesa {
   String valor;
-  String codigo;
+  String descricao;
+  String fotoNF;
+  String data;
 
-  Despesa({this.valor, this.codigo});
+  Despesa({this.valor, this.descricao, this.fotoNF, this.data});
 
-  Despesa.fromMap(DocumentSnapshot snapshot)
-      : valor = snapshot['valor'],
-        codigo = snapshot['codigo'];
 
-  toJson() {
+  Despesa.fromMap(dynamic snapshot){
+    Map<String, dynamic> data = snapshot.data();
+    valor = data['valor'];
+    descricao = data['descricao'];
+    fotoNF = data['fotoNF'];
+    data = data['data'];
+  }
+
+  toJson(){
     return {
-      'valor': valor,
-      'codigo': codigo,
+      'valor':valor,
+      'descricao':descricao,
+      'fotoNF':fotoNF,
+      'data':data
     };
   }
 }

@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pagowandroidmobile/Core/Models/despesa.dart';
 import './auth.dart';
 
 //  Atualizar dados OK
@@ -58,5 +60,13 @@ class Services {
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  Future inputReembolso(Despesa despesa) async {
+    Auth authentication = Auth();
+    FirebaseUser user = await authentication.auth.currentUser();
+    var email = user.email;
+    await ref.document(email).updateData(
+        {'despesas': despesa.toJson()}).catchError((e) => print(e.toString()));
   }
 }
