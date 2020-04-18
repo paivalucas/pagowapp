@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pagowandroidmobile/screens/feed/helpers/input.dart';
+import 'RefundPrefab.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,10 +8,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _username;
-  String _userImage;
 
   Color laranjaPagow = Color(0xFFFF7C61);
+
+  InputHelper helper = InputHelper();
+
+  @override
+  void initState() {
+    super.initState();
+
+    Input i = Input();
+    i.value = "30,0";
+    i.categ = "Hospedagem";
+    i.desc = "Hotel trivago";
+    i.date = "18/04/2020";
+    i.img = "notafiscalteste";
+
+    helper.saveInput(i);
+
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -89,64 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           Container(height: 30),
-          Container(
-              padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-              width: double.infinity,
-              height: 100,
-              decoration: new BoxDecoration(
-                  boxShadow: <BoxShadow>[
-                    new BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 19.0,
-                      offset: new Offset(2.0, 2.0),
-                    ),
-                  ],
-                  color: Colors.white, //new Color.fromRGBO(255, 0, 0, 0.0),
-                  borderRadius: BorderRadius.circular(20.0)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Icon(
-                    Icons.fastfood,
-                    size: 45,
-                    color: laranjaPagow,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Alimentação",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        "13 de mar, 2020",
-                        style: TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "R\$ 29,90",
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        "Pendente",
-                        style: TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.w400, color: Colors.red),
-                      ),
-                    ],
-                  ),
-                  Container()
-                ],
-              ))
+          RefundWidget()
         ],
       ),
     );

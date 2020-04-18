@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pagowandroidmobile/screens/app/feed/feed.dart';
+import 'package:pagowandroidmobile/screens/feed/feed.dart';
+
 
 void main() => runApp(MyApp());
 
