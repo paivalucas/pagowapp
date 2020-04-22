@@ -12,7 +12,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  TextEditingController _emailEsqueci  = TextEditingController();
+  TextEditingController _emailEsqueci = TextEditingController();
 
   void _submitEsqueci(String email) {
     final form = formKey.currentState;
@@ -28,10 +28,10 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
     final snackbar = SnackBar(
       content: Text('Email: $_emailEsqueci'),
     );
-    
+
+    scaffoldKey.currentState.showSnackBar(snackbar);
     Auth a;
     a.passwordResetEmail(email);
-    scaffoldKey.currentState.showSnackBar(snackbar);
   }
 
   @override
