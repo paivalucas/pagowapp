@@ -123,7 +123,7 @@ class Database {
     */
 
     var colab = await this.searchColab('funcionou');
-    
+
     colab.despesas.add(despesa.toJson());
 
     await this.updateColaborador(colab);

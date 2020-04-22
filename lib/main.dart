@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:pagowandroidmobile/Core/Services/auth.dart';
-import 'package:pagowandroidmobile/screens/app/feed/feed.dart';
+import 'screens/feed/feed.dart';
 
 void main() => runApp(MyApp());
 
@@ -324,9 +324,9 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
-                    onPressed: () {
+                    onPressed: () async {
                       Auth auth = Auth();
-                      auth.passwordResetEmail(emailController.text);
+                      await auth.passwordResetEmail(emailController.text);
                     },
                     color: Colors.white,
                     child: Text(

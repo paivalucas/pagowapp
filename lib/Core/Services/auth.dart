@@ -30,7 +30,9 @@ class Auth {
 
   Future<void> passwordResetEmail(String email) async {
     try {
-      await auth.sendPasswordResetEmail(email: email);
+      await auth
+          .sendPasswordResetEmail(email: email)
+          .catchError((e) => print(e.toString()));
     } catch (e) {
       print(e.toString());
     }

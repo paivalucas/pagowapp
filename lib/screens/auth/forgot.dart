@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:pagowandroidmobile/Core/Services/auth.dart';
 import 'login.dart';
 
 class EsqueciSenha extends StatefulWidget {
@@ -13,21 +14,23 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
   TextEditingController _emailEsqueci  = TextEditingController();
 
-  void _submitEsqueci() {
+  void _submitEsqueci(String email) {
     final form = formKey.currentState;
 
     if (form.validate()) {
       form.save();
 
-      _esqueciComando();
+      _esqueciComando(email);
     }
   }
 
-  void _esqueciComando() {
+  void _esqueciComando(String email) {
     final snackbar = SnackBar(
       content: Text('Email: $_emailEsqueci'),
     );
-
+    
+    Auth a;
+    a.passwordResetEmail(email);
     scaffoldKey.currentState.showSnackBar(snackbar);
   }
 
@@ -106,6 +109,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                 hintText: 'Insira seu email',
                 labelText: 'Endereço de Email',
               ),
+              controller: _emailEsqueci,
               style: TextStyle(color: Colors.white),
               validator: (val) => !EmailValidator.validate(val, true)
                   ? 'Email inválido.'
@@ -119,7 +123,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                         borderRadius: new BorderRadius.circular(30.0)),
                     padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
                     onPressed: () {
-                      _submitEsqueci();
+                      _submitEsqueci(_emailEsqueci.text);
                     },
                     color: Colors.white,
                     child: Text(

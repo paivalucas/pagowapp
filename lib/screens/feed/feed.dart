@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pagowandroidmobile/screens/app/feed/widgets/Home.dart';
-import 'package:pagowandroidmobile/screens/app/feed/widgets/InputR.dart';
+import 'package:pagowandroidmobile/screens/feed/screens/Home.dart';
+import 'screens/Inputing.dart';
+import 'screens/Home.dart';
 
 void main() => runApp(MyApp());
 
