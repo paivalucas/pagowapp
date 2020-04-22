@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Despesa {
   String valor;
@@ -8,21 +8,19 @@ class Despesa {
 
   Despesa({this.valor, this.descricao, this.fotoNF, this.data});
 
-
-  Despesa.fromMap(dynamic snapshot){
-    Map<String, dynamic> data = snapshot.data();
-    valor = data['valor'];
-    descricao = data['descricao'];
-    fotoNF = data['fotoNF'];
-    data = data['data'];
+  Despesa.fromMap(DocumentSnapshot snapshot) {
+    valor = snapshot['valor'];
+    descricao = snapshot['descricao'];
+    fotoNF = snapshot['fotoNF'];
+    data = snapshot['data'];
   }
 
-  toJson(){
+  toJson() {
     return {
-      'valor':valor,
-      'descricao':descricao,
-      'fotoNF':fotoNF,
-      'data':data
+      'valor': valor,
+      'descricao': descricao,
+      'fotoNF': fotoNF,
+      'data': data
     };
   }
 }

@@ -18,8 +18,8 @@ class Auth {
 
   Future signInWithEmailAndPassword(String email, String senha) async {
     try {
-      AuthResult result = await auth.signInWithEmailAndPassword(
-          email: email, password: senha);
+      AuthResult result =
+          await auth.signInWithEmailAndPassword(email: email, password: senha);
       FirebaseUser user = result.user;
       return user;
     } catch (e) {
@@ -29,13 +29,14 @@ class Auth {
   }
 
   Future<void> passwordResetEmail(String email) async {
-    try{
+    try {
       await auth.sendPasswordResetEmail(email: email);
-    }catch(e){
+    } catch (e) {
       print(e.toString());
     }
   }
 
-  // TODO: Autenticação por celular
-  // TODO: Ler documentação
+  void deslogar() async {
+    await auth.signOut().catchError((e) => print(e.toString()));
+  }
 }

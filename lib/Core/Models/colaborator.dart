@@ -1,23 +1,22 @@
 import 'dart:core';
-import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'despesa.dart';
-
 class Colaborador {
+  String id;
   String email;
   String nome;
   String nomeDaEmpresa;
   String nTelefone;
   String senha;
-  Double cpf;
+  String cpf;
   String nomeDoBanco;
   String nDaConta;
   String nDaAgencia;
-  List<Despesa> despesas;
+  List despesas;
 
   Colaborador(
       {this.email,
+      this.id,
       this.nome,
       this.nomeDaEmpresa,
       this.nTelefone,
@@ -29,8 +28,9 @@ class Colaborador {
       this.despesas});
 
   // Transforma o objeto JSON obtido pela requisição do Firebase em um objeto Colaborador
-  Colaborador.fromMap(DocumentSnapshot snapshot)
+  Colaborador.fromMap(DocumentSnapshot snapshot, String docId)
       : email = snapshot['email'],
+        id = docId,
         nome = snapshot['nome'],
         nomeDaEmpresa = snapshot['nomeDaEmpresa'],
         nTelefone = snapshot['nTelefone'],
