@@ -18,8 +18,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  String _email;
-  String _password;
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
 
   void _submitCommand() {
     final form = formKey.currentState;
@@ -32,13 +32,15 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _loginCommand() {
+    var email = _email.text;
+    var pass = _password.text;
     final snackbar = SnackBar(
-      content: Text('Email: $_email, password: $_password'),
+      content: Text('Email: $email, password: $pass'),
     );
     scaffoldKey.currentState.showSnackBar(snackbar);
 
     Auth auth;
-    auth.signInWithEmailAndPassword(_email, _password);
+    auth.signInWithEmailAndPassword(_email.text, _password.text);
   }
 
   @override
@@ -119,7 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     !EmailValidator.validate(val, true)
                                         ? 'Email inválido.'
                                         : null,
-                                onSaved: (val) => _email = val,
+                                onSaved: (val) =>
+                                    _email = TextEditingController(text: val),
+                                controller: _email,
                               ),
                               TextFormField(
                                 decoration: InputDecoration(
@@ -132,8 +136,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                     labelText: 'Senha'),
                                 validator: (val) =>
                                     val.length < 4 ? 'Senha inválida' : null,
-                                onSaved: (val) => _password = val,
+                                onSaved: (val) => _password =
+                                    TextEditingController(text: val),
                                 obscureText: true,
+                                controller: _password,
                               ),
                               Divider(
                                 color: Color(0xFFFF7255),
