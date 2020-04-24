@@ -5,12 +5,14 @@ import 'screens/feed/feed.dart';
 
 void main() => runApp(MyApp());
 
+// TODO: Arrumar o main
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Main',
-      home: App(),
+      home: MyApp(),
     );
   }
 }
