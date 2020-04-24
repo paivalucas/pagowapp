@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pagowandroidmobile/screens/feed/helpers/input.dart';
 import 'RefundPrefab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,25 +9,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   Color laranjaPagow = Color(0xFFFF7C61);
-
-  InputHelper helper = InputHelper();
-
-  @override
-  void initState() {
-    super.initState();
-
-    Input i = Input();
-    i.value = "30,0";
-    i.categ = "Hospedagem";
-    i.desc = "Hotel trivago";
-    i.date = "18/04/2020";
-    i.img = "notafiscalteste";
-
-    helper.saveInput(i);
-
-
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 20,
                 ),
                 Text(
-                  "Olá, Lucas!",
-                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                  "Olá, User!",
+                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w600),
                 )
               ],
             ),
           ),
           Container(height: 40),
-          Container(
+          /*Container(
             padding: const EdgeInsets.fromLTRB(40, 40, 40, 40),
             width: double.infinity,
             height: 180,
@@ -96,8 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-          ),
-          Container(height: 50),
+          ),*/
+          Container(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[

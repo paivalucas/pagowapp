@@ -18,7 +18,7 @@ class _InputRState extends State<InputR> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Center(child: SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(40, 80, 40, 40),
       child: Form(
         key: _formKey,
@@ -134,6 +134,6 @@ class _InputRState extends State<InputR> {
           ],
         ),
       ),
-    );
+    ),);
   }
 }

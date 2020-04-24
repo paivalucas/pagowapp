@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pagowandroidmobile/screens/feed/screens/Home.dart';
+import 'package:pagowandroidmobile/screens/feed/screens/UserProfile.dart';
 import 'screens/Inputing.dart';
 import 'screens/Home.dart';
 
@@ -7,10 +8,13 @@ void main() => runApp(MyApp());
 
 /// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
+
+  Color laranjaPagow = Color(0xFFFF7C61);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: App(),
+      theme: ThemeData(brightness: Brightness.dark),
     );
   }
 }
@@ -56,7 +60,7 @@ class _AppState extends State<App> {
             HomeScreen(), // tela 1
             Center(child: Text("Page 2")),
             Center(child: Text("Page 3")),
-            Center(child: Text("Page 4")),
+            UserProfile(),
           ],
         ),
         bottomNavigationBar: BottomAppBar(
