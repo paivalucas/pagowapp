@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:pagowandroidmobile/Core/Services/auth.dart';
-import 'screens/feed/feed.dart';
+import 'package:pagowandroidmobile/screens/auth/login.dart';
 
 void main() => runApp(MyApp());
-
-// TODO: Arrumar o main
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'main',
-      home: MyApp(),
+      title: 'PagowApp',
+      home: Login(),
     );
   }
 }
+
+/*
+
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -521,3 +521,5 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ));
   }
 }
+
+*/
