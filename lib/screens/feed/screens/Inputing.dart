@@ -11,14 +11,13 @@ class _InputRState extends State<InputR> {
   final _formKey = GlobalKey<FormState>();
   final valorController = TextEditingController();
   final descricaoController = TextEditingController();
-  final fotoController = TextEditingController();
   final dataController = TextEditingController();
   final codigoController = TextEditingController();
   final categoriaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: SingleChildScrollView(
+    return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(40, 80, 40, 40),
       child: Form(
         key: _formKey,
@@ -46,7 +45,7 @@ class _InputRState extends State<InputR> {
                   hintText: 'Descrição',
                   focusColor: Colors.white,
                   labelText: 'Descrição'),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               controller: descricaoController,
             ),
             TextFormField(
@@ -58,8 +57,6 @@ class _InputRState extends State<InputR> {
                   hintText: 'Foto',
                   focusColor: Colors.white,
                   labelText: 'Foto'),
-              controller: fotoController,
-              keyboardType: TextInputType.number,
             ),
             TextFormField(
               decoration: InputDecoration(
@@ -70,7 +67,7 @@ class _InputRState extends State<InputR> {
                   hintText: 'Data',
                   focusColor: Colors.white,
                   labelText: 'Data'),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.datetime,
               controller: dataController,
             ),
             TextFormField(
@@ -94,7 +91,7 @@ class _InputRState extends State<InputR> {
                   hintText: 'Categória',
                   focusColor: Colors.white,
                   labelText: 'Categória'),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               controller: categoriaController,
             ),
             Container(
@@ -108,16 +105,18 @@ class _InputRState extends State<InputR> {
                 padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
-                    Database database =
-                        Database('Empresas/Pagow/Despesas');
+                    Database database = Database('Empresas/Pagow/Despesas');
                     Despesa despesa = Despesa(
-                        valor: valorController.text,
-                        descricao: descricaoController.text,
-                        fotoNF: fotoController.text,
-                        data: dataController.text);
+                      categoriaController.text,
+                      double.parse(valorController.text),
+                      descricaoController.text,
+                      DateTime.parse(dataController.text),
+                    );
                     //teste
                     await database.inputReembolso(despesa);
                     //teste
+                  } else{
+                    print('form não validado');
                   }
                 },
                 color: Colors.white,
@@ -134,6 +133,6 @@ class _InputRState extends State<InputR> {
           ],
         ),
       ),
-    ),);
+    );
   }
 }

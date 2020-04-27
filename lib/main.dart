@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:pagowandroidmobile/Core/Services/auth.dart';
+import 'package:pagowandroidmobile/screens/feed/screens/Home.dart';
 import 'screens/feed/feed.dart';
 
 void main() => runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'main',
-      home: MyApp(),
+      home: HomeScreen(),
     );
   }
 }

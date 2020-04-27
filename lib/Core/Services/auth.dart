@@ -3,7 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 class Auth {
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  // Registo e autenticação com email e senha e Redefinição de senha
+  /* TODO: ActionSettings
+   Dynamic link 
+   Gerar links de ação
+   Signin com email e link*/
 
   Future<dynamic> registerEmailAndPassword(String email, String senha) async {
     try {
