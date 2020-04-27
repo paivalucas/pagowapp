@@ -53,7 +53,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MyHomePage()));
+                                builder: (context) => Login()));
                       },
                       child: Icon(Icons.arrow_back, color: Colors.white),
                     ),
