@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:pagowandroidmobile/Core/Services/auth.dart';
+import 'package:pagowandroidmobile/screens/feed/screens/Home.dart';
+import 'package:pagowandroidmobile/screens/feed/screens/RefundPrefab.dart';
 import 'register.dart';
 import 'forgot.dart';
 
@@ -31,7 +33,7 @@ class _LoginState extends State<Login> {
     }
   }
 
-  void _loginCommand() {
+  void _loginCommand() async {
     var email = _email.text;
     var pass = _password.text;
     final snackbar = SnackBar(
@@ -39,8 +41,8 @@ class _LoginState extends State<Login> {
     );
     scaffoldKey.currentState.showSnackBar(snackbar);
 
-    Auth auth;
-    auth.signInWithEmailAndPassword(_email.text, _password.text);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeScreen()));
   }
 
   @override
@@ -117,10 +119,6 @@ class _LoginState extends State<Login> {
                                   labelText: 'Endereço de Email',
                                 ),
                                 style: TextStyle(color: Colors.white),
-                                validator: (val) =>
-                                    !EmailValidator.validate(val, true)
-                                        ? 'Email inválido.'
-                                        : null,
                                 onSaved: (val) =>
                                     _email = TextEditingController(text: val),
                                 controller: _email,
@@ -134,10 +132,6 @@ class _LoginState extends State<Login> {
                                     hintText: 'Insira sua senha',
                                     focusColor: Colors.white,
                                     labelText: 'Senha'),
-                                validator: (val) =>
-                                    val.length < 4 ? 'Senha inválida' : null,
-                                onSaved: (val) => _password =
-                                    TextEditingController(text: val),
                                 obscureText: true,
                                 controller: _password,
                               ),

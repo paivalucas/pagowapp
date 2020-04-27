@@ -9,7 +9,7 @@ class RefundWidget extends StatefulWidget {
 
 class _RefundWidgetState extends State<RefundWidget> {
   Color laranjaPagow = Color(0xFFFF7C61);
-  List<Colaborador> colabs = [];
+  List despesas = [];
 
   @override
   void initState() {
@@ -19,7 +19,7 @@ class _RefundWidgetState extends State<RefundWidget> {
     readData().then(
       (value) => setState(
         () {
-          colabs = value;
+          despesas = value;
         },
       ),
     );
