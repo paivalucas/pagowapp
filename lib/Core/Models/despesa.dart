@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class Despesa {
   String id;
-  double valor;
+  int valor;
   String descricao;
   String categoria;
   Image fotoNF;
@@ -11,7 +11,7 @@ class Despesa {
   String idColaborador;
   bool done;
 
-  Despesa(String categoria, double valor, String descricao, DateTime data){
+  Despesa(String categoria, int valor, String descricao, DateTime data){
       this.categoria = categoria;
       this.valor = valor;
       this.descricao = descricao;

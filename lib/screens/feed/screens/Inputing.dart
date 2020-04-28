@@ -66,7 +66,7 @@ class _InputRState extends State<InputR> {
                   ),
                   hintText: 'Data',
                   focusColor: Colors.white,
-                  labelText: 'Data'),
+                  labelText: 'Example: 2000-12-24'),
               keyboardType: TextInputType.datetime,
               controller: dataController,
             ),
@@ -108,7 +108,7 @@ class _InputRState extends State<InputR> {
                     Database database = Database('Empresas/Pagow/Despesas');
                     Despesa despesa = Despesa(
                       categoriaController.text,
-                      double.parse(valorController.text),
+                      int.parse(valorController.text),
                       descricaoController.text,
                       DateTime.parse(dataController.text),
                     );

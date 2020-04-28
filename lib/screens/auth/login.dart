@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:pagowandroidmobile/Core/Services/auth.dart';
+import 'package:pagowandroidmobile/screens/feed/feed.dart';
 import 'package:pagowandroidmobile/screens/feed/screens/Home.dart';
 import 'package:pagowandroidmobile/screens/feed/screens/RefundPrefab.dart';
 import 'register.dart';
@@ -42,7 +43,7 @@ class _LoginState extends State<Login> {
     scaffoldKey.currentState.showSnackBar(snackbar);
 
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        context, MaterialPageRoute(builder: (context) => App()));
   }
 
   @override

@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Container(height: 40),
-          /*Container(
+          Container(
             padding: const EdgeInsets.fromLTRB(40, 40, 40, 40),
             width: double.infinity,
             height: 180,
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-          ),*/
+          ),
           Container(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

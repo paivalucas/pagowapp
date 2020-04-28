@@ -4,21 +4,6 @@ import 'package:pagowandroidmobile/screens/feed/screens/UserProfile.dart';
 import 'screens/Inputing.dart';
 import 'screens/Home.dart';
 
-void main() => runApp(MyApp());
-
-/// This Widget is the main application widget.
-class MyApp extends StatelessWidget {
-
-  Color laranjaPagow = Color(0xFFFF7C61);
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: App(),
-      theme: ThemeData(brightness: Brightness.dark),
-    );
-  }
-}
-
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
   _AppState createState() => _AppState();
