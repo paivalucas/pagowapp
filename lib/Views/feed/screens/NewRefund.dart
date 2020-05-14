@@ -16,6 +16,8 @@ class _InputRState extends State<InputR> {
   final codigoController = TextEditingController();
   final categoriaController = TextEditingController();
 
+
+Color laranjaPagow = Color(0xFFFF7C61);
   @override
   Widget build(BuildContext context) {
     return Center(child: SingleChildScrollView(
@@ -28,20 +30,20 @@ class _InputRState extends State<InputR> {
               decoration: InputDecoration(
                 icon: Icon(
                   Icons.email,
-                  color: Colors.white,
+                  color: laranjaPagow
                 ),
                 hintText: 'Valor',
                 labelText: 'Valor',
               ),
               controller: valorController,
               keyboardType: TextInputType.number,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black),
             ),
             TextFormField(
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: laranjaPagow
                   ),
                   hintText: 'Descrição',
                   focusColor: Colors.white,
@@ -53,7 +55,7 @@ class _InputRState extends State<InputR> {
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: laranjaPagow
                   ),
                   hintText: 'Foto',
                   focusColor: Colors.white,
@@ -65,7 +67,7 @@ class _InputRState extends State<InputR> {
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: laranjaPagow
                   ),
                   hintText: 'Data',
                   focusColor: Colors.white,
@@ -77,7 +79,7 @@ class _InputRState extends State<InputR> {
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: laranjaPagow
                   ),
                   hintText: 'Código',
                   focusColor: Colors.white,
@@ -89,7 +91,7 @@ class _InputRState extends State<InputR> {
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: laranjaPagow
                   ),
                   hintText: 'Categória',
                   focusColor: Colors.white,

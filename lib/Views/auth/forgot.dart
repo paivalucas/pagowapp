@@ -37,7 +37,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF333333),
+      backgroundColor: Colors.grey[10],
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(40, 60, 40, 40),
         child: Column(
@@ -50,19 +50,16 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                     // coluna 1/3
                     FlatButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Login()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Login()));
                       },
-                      child: Icon(Icons.arrow_back, color: Colors.white),
+                      child: Icon(Icons.arrow_back, color: Colors.black),
                     ),
                   ],
                 ),
                 Column(
                   children: <Widget>[
                     //coluna 2/3
-                    Image.asset('images/logo.png', width: 120.0),
                   ],
                 ),
                 Column(
@@ -76,10 +73,8 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
             ///
             /// Fim cabecalho
             ///
-            Divider(
-              color: Color(0xFF333333),
-              height: 160,
-            ),
+
+            Container(height: 160),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -88,34 +83,36 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 28.0,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
               ],
             ),
             Text(
               "Insira o email da sua conta para que possamos te ajudar a recuperar",
               style: TextStyle(
-                  fontWeight: FontWeight.w100,
+                  fontWeight: FontWeight.w200,
                   fontSize: 20.0,
-                  color: Colors.white),
+                  color: Colors.black),
             ),
-            Divider(color: Color(0xFF33333), height: 40.0),
-            TextFormField(
-              decoration: InputDecoration(
-                icon: Icon(
-                  Icons.email,
-                  color: Colors.white,
-                ),
-                hintText: 'Insira seu email',
-                labelText: 'Endereço de Email',
-              ),
-              controller: _emailEsqueci,
-              style: TextStyle(color: Colors.white),
-              validator: (val) => !EmailValidator.validate(val, true)
-                  ? 'Email inválido.'
-                  : null,
-            ),
-            Divider(color: Color(0xFF33333), height: 40.0),
+            Container(height: 40),
+            Form(
+                key: formKey,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.email,
+                      color: Colors.black,
+                    ),
+                    hintText: 'Insira seu email',
+                    labelText: 'Endereço de Email',
+                  ),
+                  controller: _emailEsqueci,
+                  style: TextStyle(color: Colors.black),
+                  validator: (val) => !EmailValidator.validate(val, true)
+                      ? 'Email inválido.'
+                      : null,
+                )),
+            Container(height: 40),
             ConstrainedBox(
                 constraints: const BoxConstraints(minWidth: double.infinity),
                 child: RaisedButton(

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pagowandroidmobile/screens/feed/screens/Home.dart';
-import 'package:pagowandroidmobile/screens/feed/screens/UserProfile.dart';
-import 'screens/Inputing.dart';
-import 'screens/Home.dart';
+import 'package:pagowandroidmobile/Views/feed/screens/Preferences.dart';
+import 'screens/Feed.dart';
+import 'screens/NewRefund.dart';
 
 void main() => runApp(MyApp());
 
-/// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
 
   Color laranjaPagow = Color(0xFFFF7C61);
@@ -69,7 +67,7 @@ class _AppState extends State<App> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.web),
                 color: selectedPage == 1 ? laranjaPagow : Colors.grey,
                 onPressed: () {
                   _myPage.jumpToPage(1);
@@ -79,7 +77,7 @@ class _AppState extends State<App> {
                 },
               ),
               IconButton(
-                icon: Icon(Icons.attach_money),
+                icon: Icon(Icons.show_chart),
                 color: selectedPage == 2 ? laranjaPagow : Colors.grey,
                 onPressed: () {
                   _myPage.jumpToPage(2);

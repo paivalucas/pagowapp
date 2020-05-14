@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'RefundPrefab.dart';
+import 'package:pagowandroidmobile/Widgets/FeedPrefab.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,10 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                CircleAvatar(
-                  radius: 20,
-                  backgroundImage: AssetImage("images/eu.jpg"),
-                ),
                 Container(
                   width: 20,
                 ),
