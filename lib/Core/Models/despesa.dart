@@ -1,26 +1,49 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/widgets.dart';
 
 class Despesa {
-  String valor;
+  String id;
+  int valor;
   String descricao;
-  String fotoNF;
-  String data;
+  String categoria;
+  Image fotoNF;
+  DateTime data;
+  String idColaborador;
+  bool done;
 
-  Despesa({this.valor, this.descricao, this.fotoNF, this.data});
+  Despesa(String categoria, int valor, String descricao, DateTime data){
+      this.categoria = categoria;
+      this.valor = valor;
+      this.descricao = descricao;
 
-  Despesa.fromMap(DocumentSnapshot snapshot) {
+      //Later
+      // this.fotoNF = fotoNF;
+
+      
+      this.data = data;
+      this.idColaborador = idColaborador;
+      }
+
+  Despesa.fromMap(DocumentSnapshot snapshot, String id) {
     valor = snapshot['valor'];
+    id = id;
+    categoria = snapshot['categoria'];
     descricao = snapshot['descricao'];
     fotoNF = snapshot['fotoNF'];
     data = snapshot['data'];
+    done = snapshot['reembolso'];
+    idColaborador = snapshot['colaborador'];
   }
 
   toJson() {
     return {
       'valor': valor,
       'descricao': descricao,
+      'categoria': categoria,
       'fotoNF': fotoNF,
-      'data': data
+      'data': data,
+      'colaborador': idColaborador,
+      'reembolso': done
     };
   }
 }

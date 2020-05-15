@@ -4,6 +4,15 @@ import 'package:pagowandroidmobile/Core/Models/colaborator.dart';
 import 'package:pagowandroidmobile/Core/Models/despesa.dart';
 import './auth.dart';
 
+/* TODO: 
+        auth para alteração de usuário; 
+        sessão atual
+        preencher dinamicamente a tela de usuário
+        preencher dinamicamente o feed de usuário
+        Estruturar databse
+        Integrar campo cnpj
+*/
+
 class Database {
   final Firestore _databaseReference = Firestore.instance;
   CollectionReference ref;
@@ -17,8 +26,7 @@ class Database {
   //Registro no banco de dados das informações de usuário
 
   Future<void> cadastrarUsuarioNoBancoDeDados(String email, String senha,
-      String nome, String cpf, String empresa, String telefone) async {
-    ref.document('$empresa').setData({});
+      String nome, double cpf, String empresa, double telefone) async {
     await ref
         .document(empresa)
         .collection('Colaboradores')
@@ -109,10 +117,19 @@ class Database {
     return colaboradores;
   }
 
+  Future<List<Despesa>> searchDespesas() async {
+    var result = await ref.getDocuments();
+    var despesas = result.documents
+        .map((doc) => Despesa.fromMap(doc, doc.documentID))
+        .toList();
+    return despesas;
+  }
+
   // Working Dados falsos
   Future inputReembolso(Despesa despesa) async {
     // Adiciona a despesa no documento despesa
-    //await ref.add(despesa.toJson());
+    await ref.add(despesa.toJson());
+    
     // Referencia ao arquivo de colaboradores da empresa
     // TODO: tomar conhecimento da empresa para vincular path
     ref = _databaseReference.collection('Empresas/Pagow/Colaboradores');

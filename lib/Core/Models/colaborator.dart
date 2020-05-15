@@ -6,12 +6,12 @@ class Colaborador {
   String email;
   String nome;
   String nomeDaEmpresa;
-  String nTelefone;
+  int nTelefone;
   String senha;
-  String cpf;
+  int cpf;
   String nomeDoBanco;
-  String nDaConta;
-  String nDaAgencia;
+  int nDaConta;
+  int nDaAgencia;
   List despesas;
 
   Colaborador(

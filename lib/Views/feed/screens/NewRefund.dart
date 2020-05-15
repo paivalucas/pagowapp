@@ -11,7 +11,6 @@ class _InputRState extends State<InputR> {
   final _formKey = GlobalKey<FormState>();
   final valorController = TextEditingController();
   final descricaoController = TextEditingController();
-  final fotoController = TextEditingController();
   final dataController = TextEditingController();
   final codigoController = TextEditingController();
   final categoriaController = TextEditingController();
@@ -20,7 +19,7 @@ class _InputRState extends State<InputR> {
 Color laranjaPagow = Color(0xFFFF7C61);
   @override
   Widget build(BuildContext context) {
-    return Center(child: SingleChildScrollView(
+    return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(40, 80, 40, 40),
       child: Form(
         key: _formKey,
@@ -48,7 +47,7 @@ Color laranjaPagow = Color(0xFFFF7C61);
                   hintText: 'Descrição',
                   focusColor: Colors.white,
                   labelText: 'Descrição'),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               controller: descricaoController,
             ),
             TextFormField(
@@ -60,8 +59,6 @@ Color laranjaPagow = Color(0xFFFF7C61);
                   hintText: 'Foto',
                   focusColor: Colors.white,
                   labelText: 'Foto'),
-              controller: fotoController,
-              keyboardType: TextInputType.number,
             ),
             TextFormField(
               decoration: InputDecoration(
@@ -71,8 +68,8 @@ Color laranjaPagow = Color(0xFFFF7C61);
                   ),
                   hintText: 'Data',
                   focusColor: Colors.white,
-                  labelText: 'Data'),
-              keyboardType: TextInputType.number,
+                  labelText: 'Example: 2000-12-24'),
+              keyboardType: TextInputType.datetime,
               controller: dataController,
             ),
             TextFormField(
@@ -96,7 +93,7 @@ Color laranjaPagow = Color(0xFFFF7C61);
                   hintText: 'Categória',
                   focusColor: Colors.white,
                   labelText: 'Categória'),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               controller: categoriaController,
             ),
             Container(
@@ -110,16 +107,18 @@ Color laranjaPagow = Color(0xFFFF7C61);
                 padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
-                    Database database =
-                        Database('Empresas/Pagow/Despesas');
+                    Database database = Database('Empresas/Pagow/Despesas');
                     Despesa despesa = Despesa(
-                        valor: valorController.text,
-                        descricao: descricaoController.text,
-                        fotoNF: fotoController.text,
-                        data: dataController.text);
+                      categoriaController.text,
+                      int.parse(valorController.text),
+                      descricaoController.text,
+                      DateTime.parse(dataController.text),
+                    );
                     //teste
                     await database.inputReembolso(despesa);
                     //teste
+                  } else{
+                    print('form não validado');
                   }
                 },
                 color: Colors.white,
@@ -136,6 +135,6 @@ Color laranjaPagow = Color(0xFFFF7C61);
           ],
         ),
       ),
-    ),);
+    );
   }
 }
