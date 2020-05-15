@@ -3,6 +3,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:pagowandroidmobile/Core/Services/auth.dart';
 import 'login.dart';
 
+  // TODO: teste
+
 class EsqueciSenha extends StatefulWidget {
   @override
   _EsqueciSenhaState createState() => _EsqueciSenhaState();
@@ -33,7 +35,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
     Auth a;
     a.passwordResetEmail(email);
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
